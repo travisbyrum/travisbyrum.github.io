@@ -1,0 +1,2 @@
+User-Agent: *
+Sitemap: https://travisbyrum.github.io/sitemap.xml

@@ -1,2 +1,4 @@
-me: Travis Byrum
+name: Travis Byrum
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
+

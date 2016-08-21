@@ -1,4 +1,26 @@
+title: Travis Byrum // Data Scientist
 name: Travis Byrum
+email: travis.tbyrum@gmail.com
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
+github_username: travisbyrum
 
+# Resume settings
+resume_name:                    "Travis T. Byrum"
+resume_title:                   "Data Scientist"
+resume_contact_email:           "travis.tbyrum@gmail.com"
+
+# Decide which sections to use
+# comment out to hide
+resume_section_experience:      true
+resume_section_education:       true
+resume_section_projects:        true
+resume_section_skills:          true
+resume_section_recognition:     true
+resume_section_links:           true
+resume_section_associations:    true
+
+# Resume social links
+# uncomment the options you wish to display, and add your own URL
+resume_social_links:
+resume_github_url:             "https://github.com/travisbyrum"

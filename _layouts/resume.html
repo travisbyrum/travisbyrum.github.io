@@ -1,178 +1,130 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 
-    <title>{{ page.title }}</title>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-    <link rel="stylesheet" href="css/main.css">
-  </head>
+<head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+     <style type="text/css">
+		nav ul, footer ul {font-family:'Helvetica', 'Arial', 'Sans-Serif'; padding: 0px; list-style: none; font-weight: bold;}
+		nav ul li, footer ul li {display: inline; margin-right: 20px;}
+		a {text-decoration: none; color: #999;}
+		a:hover {text-decoration: underline;}
+        * { margin: 0; padding: 0; }
+        body { font: 16px Helvetica, Sans-Serif; line-height: 24px; }
+        .clear { clear: both; }
+        #page-wrap { width: 800px; margin: 40px auto 60px; }
+        #pic { float: right; margin: -30px 0 0 0; }
+        h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
+        h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; }
+        h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
+        p { margin: 0 0 16px 0; }
+        a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
+        a:hover { border-bottom-style: solid; color: black; }
+        ul { margin: 0 0 32px 17px; }
+        #objective { width: 500px; float: left; }
+        #objective p { font-family: Georgia, Serif; font-style: italic; color: #666; }
+        dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  }
+        dd { width: 600px; float: right; }
+        dd.clear { float: none; margin: 0; height: 15px; }
+     </style>
 
-  <body>
+</head>
 
-    <div class="wrapper" itemscope itemtype="http://schema.org/Person">
+<body>
+	<nav>
+		<ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="/about">About</a></li>
+			<li><a href="/blog">Blog</a></li>
+		</ul>
+	</nav>
+    <div id="page-wrap">
+        <div id="contact-info" class="vcard">
 
-      <header class="page-header">
+            <!-- Microformats! -->
+			<h1 class="fn">{{ page.title }}</h1>
 
-        <h1 class="header-name" itemprop="name">{{ site.name }}</h1>
-
-        <div class="title-bar">
-          <!-- Your title is also defined in the _config.yml file -->
-          <h2 class="header-title" itemprop="jobTitle">{{ site.resume_title }}</h2>
+            <p>
+				Cell: <span class="tel">(704) 930-8478</span><br />
+                Email: <a class="email" href="mailto:travis.tbyrum@gmail.com">travis.tbyrum@gmail.com</a>
+            </p>
         </div>
-
-        <div class="executive-summary" itemprop="description">
-          <p>Hello! Below is a quick summary of my education, skills, and experience.</p>
+        <div id="objective">
+            <p>
+                I am a Data Scientist currently based in Washington, DC.  Below is my resume with relevant information about my skills, experience, and education.
+            </p>
         </div>
+        <div class="clear"></div>
+        <dl>
+            <dd class="clear"></dd>
 
-        <a href="mailto:{{ site.resume_contact_email }}" class="contact-button" itemprop="email">Contact me</a>
+            <dt>Education</dt>
+            <dd>
+				<h2>Duke University<span>Durham, NC // 2009-2013</span></h2>
+				<p>B.S. Statistics and B.A. Political Science</p>
+				<ul>
+					<li><strong>Coursework Includes:</strong> Multivariable Calculus, Linear Algebra, Probability, Mathematical Statistics, Data Analysis/Statistical Inference, Regression Analysis, Bayesian/Modern Statistics, Decision Theory, Statistical Consulting, Survey Statistics</li>
+					<li><strong>Senior Thesis:</strong>Wavelet-Based Functional Modeling of Accelerometer Data in Fitness Intervention Study</li>
+					<li>Dean’s List Fall 2011, Fall 2012, and Fall 2013</li>
+				</ul>
+            </dd>
 
-      </header>
+            <dd class="clear"></dd>
 
-      {% if site.resume_section_experience %}
-      <!-- begin Experience -->
-      <section class="content-section">
+            <dt>Technical Skills</dt>
+            <dd>
+                <h2>Languages</h2>
+                <p>R, Python, MySQL, PostgreSQL, LaTeX, Markdown</p>
+                <h2>Tools</h2>
+				<p>IPython, matplotlib, numpy, scikit-learn, BeautifulSoup, caret, Shiny, ggplot2, git, Github, Sweave, knitr, Unix Utilities, AWS, Microsoft Office, Qualtrics</p>
 
-        <header class="section-header">
-          <h2>Experience</h2>
-        </header>
+				<h2>Statistics and Machine Learning</h2>
+				<p>Classification, Regression, Mixed-Effects Models, Clustering, Ensembles, Dimensionality Reduction, Hypothesis Testing, Decision Analysis, Bayesian Statistics, Nonparametric Methods, Data Visualization</p>
+            </dd>
+            <dd class="clear"></dd>
 
-        <!-- Duplicate these resume-item elements and edit accordingly for each job you want to add here -->
-        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
-          <h3 class="resume-item-title" itemprop="name">Springfield Nuclear Power Plant</h3>
-          <h4 class="resume-item-details" itemprop="description">Safety Inspector &bull; Nov, 1980 &mdash; Present</h4>
-          <p class="resume-item-copy">Write about your core competencies in one or two sentences describing your position. If you held the position for a long time, it could be a longer section, including a couple bullet points:</p>
-          <ul class="resume-item-list">
-            <li>Ate lots of donuts</li>
-            <li>Fell asleep rarely</li>
-            <li>Left promptly at end of day (sometimes earlier)</li>
-          </ul>
-          <p class="resume-item-copy">If you're going to copy paste markup, or edit it, just be sure to keep the appropriate classnames on your new elements for styling purposes.</p>
+            <dt>Experience</dt>
+            <dd>
+                <h2>Morning Consult<span>Washington, DC // October 2015 - Present</span></h2>
+                <strong>Data Scientist</strong>
+                <ul>
+                    <li>Work directly with company co-founders on all phases of polling projects including survey creation, monitoring, and data analysis (Research has been cited by: The Washington Post, New York Times, 538, Fortune Magazine, The Hill, ABC, Huffington Post, Vox, Bloomberg, among others)</li>
+                    <li>Improved statistical standards and developed best practices for the company’s polling methodology</li>
+                    <li>Constructed and validated state and congressional-level election forecasts based on national surveys using multilevel regression and post-stratification (MRP)</li>
+                    <li>Developed R package to automate in-house modeling and data visualization</li>
+                </ul>
 
-        </div><!-- end of resume-item -->
+                <h2>Milwaukee Bucks<span>Milwaukee, WI // October 2014 - June 2015</span></h2>
+                <strong>Analytics Intern</strong>
+                <ul>
+                    <li>Used the web application framework Shiny in the R programming environment to create a portal for distributing strategic information to coaches and front office employees</li>
+                    <li>Constructed statistical models for tasks such as forecasting career outcomes for drafted players and predicting the efficiency of lineup combinations</li>
+                    <li>Designed a framework for performance metrics to aid in player evaluation using several statistical methods</li>
+                    <li>Worked directly under the Bucks’ Director of Analytics along with front office employees and coaches to assist in evaluating the team’s on-court performance</li>
+                </ul>
+                
+                <h2>North Carolina Common Sense<span>Durham, NC // June 2013 - April 2014</span></h2>
+                <strong>Analyst</strong>
+                <ul>
+                    <li>Synthesized North Carolina government finances for public viewing as part of a Duke student-led public policy initiative</li>
+                    <li>Conducted statistical and policy analysis on state budgetary operations</li>
+                    <li>Quantified information on state budgetary reports using the R programming environment and assisted the team’s coders in creating data visualizations</li>
+                </ul>
+                
+                <h2>Duke Statistics Department<span>Durham, NC // August 2013 - December 2013</span></h2>
+                <strong>Teaching Assistant</strong>
+                <ul>
+                    <li>Helped conduct the Probability/Statistics in Engineering course at Duke University</li>
+                    <li>Instructed one of the course’s associated lab sections</li>
+                    <li>Assisted students during office hours</li>
+                </ul>
+            </dd>
+            <dd class="clear"></dd>
 
-        <!-- another resume item -->
-        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
-          <h3 class="resume-item-title" itemprop="name">Sir Putt-A-Lot's Merrie Olde Fun Centre</h3>
-          <h4 class="resume-item-details" itemprop="description">Windmill Crank Operator &bull; Jun, 1978 &mdash; Sept, 1979</h4>
-          <p class="resume-item-copy">If your stint was shorter, feel free to be brief and just call out the most meaningful points of your role. Be concise, and be meaninful. The person reading just needs enough to want to talk to you more about your experience.</p>
-
-        </div><!-- end of resume-item -->
-
-        <!-- by now you're getting the picture... -->
-        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
-          <h3 class="resume-item-title" itemprop="name">Simpson Lazer Tag</h3>
-          <h4 class="resume-item-details" itemprop="description">Front Desk Attendant &bull; Jun, 1975 &mdash; May, 1978</h4>
-          <p class="resume-item-copy">Boy, when Marge first told me she was going to the Police Academy, I thought it would be fun and exciting, you know, like the movie... Spaceballs. But instead, it's been painful and disturbing, like the movie Police Academy.</p>
-
-        </div><!-- end of resume-item -->
-
-      </section>
-      <!-- end Experience -->
-      {% endif %}
-
-      {% if site.resume_section_education %}
-      <!-- begin Education -->
-      <section class="content-section">
-
-        <header class="section-header">
-          <h2>Education</h2>
-        </header>
-
-        <div class="resume-item" itemscope itemprop="alumniOf" itemtype="http://schema.org/CollegeOrUniversity">
-          <h3 class="resume-item-title" itemprop="name">Springfield College</h3>
-          <h4 class="resume-item-details" itemprop="description">Associates Degree, Business Management &bull; 1984 &mdash; 1986</h4>
-          <p class="resume-item-copy">If you had any meaningful roles at college, feel free to write about them here.</p>
-        </div>
-
-      </section>
-      <!-- end Education -->
-      {% endif %}
-
-      {% if site.resume_section_projects %}
-      <!-- begin Projects -->
-      <section class="content-section">
-
-        <header class="section-header">
-          <h2>Projects</h2>
-        </header>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title"><a href="http://donutlocator.io">donutfinder.io</a></h3>
-          <h4 class="resume-item-details">Founder & Primary Developer &bull; 2012 &mdash; Present</h4>
-          <p class="resume-item-copy">Donut Locator is an open source node/ember app that lets users find donuts within a defined radius from their home.</p>
-        </div>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title">Springfield Donut Eater's User Group</h3>
-          <h4 class="resume-item-details">Co-Founder & Organizer &bull; 2007 &mdash; Present</h4>
-          <p class="resume-item-copy">DEUG is a local monthly meetup in Springfield where we share all the latest tips and tricks for dat donut lifestyle. I organize the group, and typically eat most of the donuts.</p>
-        </div>
-
-      </section>
-      <!-- end Projects -->
-      {% endif %}
-
-      {% if site.resume_section_skills %}
-      <!-- begin Skills -->
-      <section class="content-section">
-
-        <header class="section-header">
-          <h2>Skills</h2>
-        </header>
-
-        <div class="resume-item">
-          <h4 class="resume-item-details">Donut design</h4>
-          <p class="resume-item-copy">Sprinkle art, icing design, eclair management, taste testing, donut/coffee pairing research</p>
-        </div>
-
-        <div class="resume-item">
-          <h4 class="resume-item-details">Craft beer brewing</h4>
-          <p class="resume-item-copy">Hops inspection, brew testing, distribution management, bottle label design, festival and event management</p>
-        </div>
-
-        <div class="resume-item">
-          <h4 class="resume-item-details">Family leadership</h4>
-          <p class="resume-item-copy">Bread winning, conflict resolution, couch inspection, TV longevity testing</p>
-        </div>
-
-      </section>
-      <!-- end Skills -->
-      {% endif %}
-
-      {% if site.resume_section_recognition %}
-      <!-- begin Recognition -->
-      <section class="content-section">
-
-        <header class="section-header">
-          <h2>Recognition</h2>
-        </header>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title" itemprop="award">Springfield Nuclear Power Plant</h3>
-          <h4 class="resume-item-details">Outstanding Achievement &bull; 2010</h4>
-          <p class="resume-item-copy">Awarded for stopping a nuclear meltdown, even though I also started it.</p>
-        </div>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title" itemprop="award">Duff Beer Customer of the year</h3>
-          <h4 class="resume-item-details">1997 &mdash; 2001, 2003, 2008 &mdash; 2012</h4>
-          <p class="resume-item-copy">Honored by <a href="https://en.wikipedia.org/wiki/Duff_Beer">Duff Beer</a> for being an outstanding customer several years straight. Qualifications included most beer consumed at a bar, most beer purchased, and most beer ralphed.</p>
-        </div>
-
-        <div class="resume-item">
-          <h3 class="resume-item-title" itemprop="award">Moe's Patron of the Month</h3>
-          <h4 class="resume-item-details">12/2001, 8/2004</h4>
-          <p class="resume-item-copy">Specifically this prestigious awarded twice for stopping a robber with my belly.</p>
-        </div>
-
-      </section>
-      <!-- end Recognition -->
-      {% endif %}
-
-      {% include footer.html %}
+        </dl>
+        <div class="clear"></div>
     </div>
-  </body>
+
+</body>
+
 </html>

@@ -4,6 +4,7 @@ email: travis.tbyrum@gmail.com
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
 github_username: travisbyrum
+phone: "(704) 930-8478"
 
 # Resume settings
 resume_name:                    "Travis T. Byrum"

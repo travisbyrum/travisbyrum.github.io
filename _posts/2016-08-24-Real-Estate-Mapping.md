@@ -3,6 +3,7 @@ layout: post
 title: "Real estate mapping"
 date: 2016-08-24
 ---
+This project uses scraped data to find out tax information on real estate in Mecklenburg County, NC.  We can use this data to predict home prices based on historic trends as well as information about the house itself and the surrounding neighborhoods.  First we import the data and do some cleaning.
 
 **In [1]:**
 

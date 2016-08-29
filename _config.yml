@@ -1,10 +1,15 @@
 title: Travis Byrum // Data Scientist
-name: Travis Byrum
+name: Travis Byrum Data Scientist
+description: Posts and ephemera
 email: travis.tbyrum@gmail.com
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
 github_username: travisbyrum
 phone: "(704) 930-8478"
+permalink: /:year/:month/:day/:title/
+paginate: 10
+
+gems: [jekyll-paginate]
 
 # Resume settings
 resume_name:                    "Travis T. Byrum"

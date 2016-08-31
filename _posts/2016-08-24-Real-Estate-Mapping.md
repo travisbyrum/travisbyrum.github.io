@@ -22,8 +22,8 @@ from sklearn.metrics import mean_squared_error
 rd.seed(123)
 ch_data = pd.read_csv("/Users/travisbyrum/charlotte_re/new_final_01.csv", dtype={'parcel_id': str})
 ch_data.columns
-df = ch_data.drop(['land_use', 'land_use', 'neighborhood_code', 'neighborhood', 'land_unit_type', 'property_use_description', 
-	'foundation_description', 'exterior_wall_description', 'heat_type', 'ac_type', 'three_quarter_baths', 'half_baths', 
+df = ch_data.drop(['land_use', 'land_use', 'neighborhood_code', 'neighborhood', 'land_unit_type', 'property_use_description',
+	'foundation_description', 'exterior_wall_description', 'heat_type', 'ac_type', 'three_quarter_baths', 'half_baths',
 	'building_type', 'pid_char','deed_book', 'legal_reference'], axis=1)
 df['stories'] = df['stories'].str[0].convert_objects(convert_numeric=True)
 df['sale_date'] = df['sale_date'].str[6:10].convert_objects(convert_numeric=True)
@@ -36,29 +36,23 @@ df['pct_ch'].fillna(0, inplace=True)
 df['pricelog'] = np.log(df['sale_price'])
 with pd.option_context('mode.use_inf_as_null', True):
     df = df.dropna()
-df.shape
 {% endhighlight %}
 
-
-    (1569, 55)
-
+After importing the necessary packages, we do some cleaning and transformations to get the data in a workable form.
 
 **In [2]:**
 
 {% highlight python %}
 response = df['pricelog']
 df_x = df[df.columns.difference(['parcel_id', 'sale_price','pricelog','pc_ch'])]
-train_rows = rd.sample(df.index, int(len(df)*.70)) # 70-30 split between train and test for cross-validation
+train_rows = rd.sample(df.index, int(len(df)*.70))
 df_train = df_x.ix[train_rows]
 response_train = response.ix[train_rows]
 df_test = df_x.drop(train_rows)
 response_test = response.drop(train_rows)
-df_train.shape
 {% endhighlight %}
 
-
-    (1098, 52)
-
+Here we set up the training and testing data sets.  Currently I am using a 70-30 split between testing and training.
 
 **In [3]:**
 
@@ -70,6 +64,7 @@ model = GradientBoostingRegressor(**params)
 gs_cv = GridSearchCV(model, params).fit(df_train, response_train)
 {% endhighlight %}
 
+After using a grid search for the best parameters values we fit a GBM model to model housing prices.
 
 **In [4]:**
 
@@ -78,6 +73,7 @@ params = gs_cv.best_params_
 model = GradientBoostingRegressor(**params).fit(df_train, response_train)
 {% endhighlight %}
 
+This fits a model with the best parameters as found through the grid search optimization.
 
 **In [5]:**
 
@@ -85,6 +81,7 @@ model = GradientBoostingRegressor(**params).fit(df_train, response_train)
 test_score = np.zeros((params['n_estimators'],), dtype=np.float64)
 for i, y_pred in enumerate(model.staged_decision_function(df_test)):
     test_score[i] = model.loss_(response_test, y_pred)
+
 plt.figure(figsize=(12, 6))
 plt.subplot(1, 2, 1)
 plt.title('Deviance')
@@ -94,7 +91,6 @@ plt.legend(loc='upper right')
 plt.xlabel('Boosting Iterations')
 plt.ylabel('Deviance')
 {% endhighlight %}
-
 
 ![png](/assets/mapping/mapper_viz_5_1.png)
 
